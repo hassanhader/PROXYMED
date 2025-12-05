@@ -1,0 +1,12 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Base application theme. -->
+    <style name="Base.Theme.PROXYMED" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primaryColor</item>
+        <item name="colorPrimaryVariant">#DDCFFF</item>
+        <item name="colorAccent">#060014</item>
+        <item name="fontFamily">@font/inter</item>
+        <item name="android:textAppearance">@style/TextAppearance.Body</item>
+    </style>
+
+    <style name="Theme.PROXYMED" parent="Base.Theme.PROXYMED" />
+</resources>

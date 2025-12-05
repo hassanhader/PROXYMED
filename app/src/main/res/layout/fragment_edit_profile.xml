@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="infirmier"
+            type="com.example.proxymed.data.model.Utilisateur" />
+    </data>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:fillViewport="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="24dp"
+            android:background="@drawable/background_fond"
+            tools:context=".ui.nurse.EditProfileFragment">
+
+            <!-- Titre -->
+            <TextView
+                android:id="@+id/profil_title"
+                style="@style/TextAppearance.Title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/edit_profile"
+                android:textColor="#673AB7"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginTop="20dp"/>
+
+            <!-- Image de Profil -->
+            <ImageButton
+                android:id="@+id/edit_profile_image"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/image_profile_circle_shape"
+                android:contentDescription="@string/profile_photo"
+                android:elevation="8dp"
+                app:photoProfil="@{infirmier.photoProfil}"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/profil_title" />
+
+            <!-- Bouton d'édition d'image -->
+            <ImageView
+                android:id="@+id/edit_profile_edit_image"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:backgroundTint="#00000000"
+                android:contentDescription="@string/edit_photo"
+                android:elevation="11dp"
+                android:src="@drawable/baseline_edit_24"
+                app:layout_constraintBottom_toBottomOf="@id/edit_profile_image"
+                app:layout_constraintEnd_toEndOf="@id/edit_profile_image"
+                app:layout_constraintStart_toStartOf="@id/edit_profile_image"
+                app:layout_constraintTop_toBottomOf="@id/edit_profile_image" />
+
+            <!-- Champ prénom -->
+            <EditText
+                android:id="@+id/edit_profile_prenom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:background="@drawable/form_field_background"
+                android:hint="@string/nom_prenom"
+                android:minHeight="48dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="@{infirmier.prenom}"
+                app:layout_constraintBottom_toTopOf="@id/edit_profile_nom"
+                app:layout_constraintTop_toBottomOf="@id/edit_profile_edit_image"/>
+
+            <EditText
+                android:id="@+id/edit_profile_nom"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/email"
+                android:minHeight="48dp"
+                android:text="@{infirmier.email}"
+                android:background="@drawable/form_field_background"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                app:layout_constraintBottom_toTopOf="@id/edit_profile_telephone"
+                app:layout_constraintTop_toBottomOf="@id/edit_profile_prenom" />
+
+            <!-- Champ téléphone -->
+            <EditText
+                android:id="@+id/edit_profile_telephone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/telephone"
+                android:minHeight="48dp"
+                android:text="@{infirmier.telephone}"
+                android:background="@drawable/form_field_background"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                app:layout_constraintBottom_toTopOf="@id/edit_profile_numero_praticien"
+                app:layout_constraintTop_toBottomOf="@id/edit_profile_nom" />
+
+            <!-- Champ numéro praticien -->
+            <EditText
+                android:id="@+id/edit_profile_numero_praticien"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/numeropraticien"
+                android:minHeight="48dp"
+                android:text="@{infirmier.numeroPraticien}"
+                android:background="@drawable/form_field_background"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                app:layout_constraintBottom_toTopOf="@id/edit_profile_adresse"
+                app:layout_constraintTop_toBottomOf="@id/edit_profile_telephone" />
+
+            <!-- Champ adresse -->
+            <EditText
+                android:id="@+id/edit_profile_adresse"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/address"
+                android:minHeight="48dp"
+                android:text="@{infirmier.adresse}"
+                android:background="@drawable/form_field_background"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                app:layout_constraintBottom_toTopOf="@id/profil_record_button"
+                app:layout_constraintTop_toBottomOf="@id/edit_profile_numero_praticien"/>
+
+            <!-- Bouton enregistrer -->
+            <Button
+                android:id="@+id/profil_record_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/record"
+                android:textColor="#FFFFFF"
+                android:textStyle="bold"
+                android:background="@drawable/rounded_background"
+                android:paddingStart="30dp"
+                android:paddingEnd="30dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/edit_profile_adresse"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</layout>
