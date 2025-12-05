@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#333333</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="light_gray">#F5F5F5</color> <!-- Gris clair esthétique -->
+    <color name="gray">#BDBDBD</color> <!-- Gris pour les bordures des champs -->
+    <color name="primaryColor">#A685FA</color> <!-- Ajuste selon ta préférence -->
+</resources>

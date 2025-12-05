@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<font-family xmlns:android="http://schemas.android.com/apk/res/android">
+    <font android:fontWeight="400" android:font="@font/interdisplay_medium"/>
+    <font android:fontWeight="700" android:font="@font/interdisplay_bold"/>
+    <font android:fontWeight="400" android:font="@font/interdisplay_italic"/>
+</font-family>
+

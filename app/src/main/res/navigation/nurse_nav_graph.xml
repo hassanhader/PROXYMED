@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation"
+    app:startDestination="@+id/navigation_dashboard">
+
+    <fragment
+        android:id="@+id/navigation_dashboard"
+        android:name="com.example.proxymed.ui.nurse.dashboard.DashboardFragment"
+        android:label="@string/title_dashboard"
+        tools:layout="@layout/fragment_dashboard">
+
+        <action
+            android:id="@+id/action_dashboardFragment_to_listePatientsFragment"
+            app:destination="@id/navigation_liste_patients" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_listeRapportFragment"
+            app:destination="@id/navigation_liste_rapports" />
+        <action
+            android:id="@+id/action_dashboardFragment_to_listeVisiteFragment"
+            app:destination="@id/navigation_liste_visites" />
+        <action
+            android:id="@+id/action_navigation_dashboard_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="com.example.proxymed.ui.nurse.dashboard.listepatient.ProfileFragment"
+        android:label="ProfileFragment"
+        tools:layout="@layout/fragment_home">
+        <!-- Correction de l'ID de l'action pour le profil -->
+        <action
+            android:id="@+id/action_profileFragment_to_editProfileFragment"
+            app:destination="@id/editProfileFragment" />
+        <action
+            android:id="@+id/action_profileFragment_to_navigation_dashboard"
+            app:destination="@id/navigation_dashboard" />
+        <action
+            android:id="@+id/action_profileFragment_to_changePasswordFragment2"
+            app:destination="@id/changePasswordFragment2" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/editProfileFragment"
+        android:name="com.example.proxymed.ui.nurse.dashboard.listepatient.EditProfileFragment"
+        android:label="EditProfileFragment"
+        tools:layout="@layout/fragment_edit_profile" >
+        <!-- Ajout de l'action de retour vers le profil -->
+        <action
+            android:id="@+id/action_editProfileFragment_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_liste_patients"
+        android:name="com.example.proxymed.ui.nurse.dashboard.listepatient.ListePatientsFragments"
+        android:label="Liste Patients" >
+        <action
+            android:id="@+id/action_navigation_liste_patients_to_navigation_dashboard"
+            app:destination="@id/navigation_dashboard" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_liste_rapports"
+        android:name="com.example.proxymed.ui.nurse.dashboard.listerapportsoumis.ListeRapportFragments"
+        android:label="Liste Rapports" >
+        <action
+            android:id="@+id/action_navigation_liste_rapports_to_navigation_dashboard"
+            app:destination="@id/navigation_dashboard" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigation_liste_visites"
+        android:name="com.example.proxymed.ui.nurse.dashboard.listevisite.ListeVisiteFragment"
+        android:label="Liste Visites" >
+        <action
+            android:id="@+id/action_navigation_liste_visites_to_navigation_dashboard"
+            app:destination="@id/navigation_dashboard" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/changePasswordFragment2"
+        android:name="com.example.proxymed.ui.nurse.dashboard.listepatient.ChangePasswordFragment"
+        android:label="ChangePasswordFragment" >
+        <action
+            android:id="@+id/action_changePasswordFragment2_to_profileFragment"
+            app:destination="@id/profileFragment" />
+    </fragment>
+</navigation>
