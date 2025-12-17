@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:padding="24dp"
+        tools:context=".ui.nurse.AddNewPatientFragment"
+        android:background="@drawable/background_fond">
+
+
+        <!-- Titre -->
+
+        <!-- Ligne de séparation -->
+        <TextView
+            android:id="@+id/add_patient_title"
+            style="@style/TextAppearance.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="76dp"
+            android:text="@string/add_patient"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/add_patient_break"
+            android:layout_width="0dp"
+            android:layout_height="2dp"
+            android:layout_marginVertical="16dp"
+            android:background="@color/black"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/add_patient_title" />
+
+        <!-- Conteneur du formulaire -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/conteneur"
+            android:layout_width="match_parent"
+            android:layout_margin="@dimen/activity_horizontal_margin"
+            android:layout_height="wrap_content"
+            app:layout_constraintTop_toBottomOf="@id/add_patient_break"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+
+            <EditText
+                android:id="@+id/add_patient_nom"
+                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                style="@style/FormField"
+                android:autofillHints=""
+                android:hint="@string/lastName"
+                android:inputType="textPersonName"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <EditText
+                android:id="@+id/add_patient_prenom"
+                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                style="@style/FormField"
+                android:autofillHints=""
+                android:hint="@string/firstName"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:inputType="textPersonName"
+                app:layout_constraintTop_toBottomOf="@id/add_patient_nom"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <EditText
+                android:id="@+id/add_patient_date_naissance"
+                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                style="@style/FormField"
+                android:autofillHints=""
+                android:hint="@string/birthday"
+                android:focusable="false"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                android:cursorVisible="false"
+                android:inputType="date"
+                app:layout_constraintTop_toBottomOf="@id/add_patient_prenom"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <EditText
+                android:id="@+id/add_patient_telephone"
+                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                style="@style/FormField"
+                android:autofillHints=""
+                android:hint="@string/telephone"
+                android:inputType="phone"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                app:layout_constraintTop_toBottomOf="@id/add_patient_date_naissance"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <EditText
+                android:id="@+id/add_patient_adresse"
+                android:layout_height="wrap_content"
+                android:layout_width="300dp"
+                style="@style/FormField"
+                android:autofillHints=""
+                android:hint="@string/address"
+                android:inputType="textPostalAddress"
+                android:layout_margin="@dimen/activity_horizontal_margin"
+                app:layout_constraintTop_toBottomOf="@id/add_patient_telephone"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent" />
+
+            <!-- Bouton Enregistrer -->
+            <Button
+                android:id="@+id/add_patient_record"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/record"
+                style="@style/ButtonStyle"
+
+                android:background="@drawable/button_rounded"
+                app:layout_constraintTop_toBottomOf="@id/add_patient_adresse"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                android:layout_marginTop="30dp" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

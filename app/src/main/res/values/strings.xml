@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">PROXYMED</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_nurse_page">NursePageActivity</string>
+    <string name="title_nurseprofile">Mon profil</string>
+    <string name="title_dashboard">Dashboard</string>
+    <string name="title_deconnexion">Déconnexion</string>
+    <string name="profile_photo">Photo de profile</string>
+    <string name="edit_photo">Edit photo</string>
+    <string name="record">Enregistrer</string>
+    <string name="back">Retour</string>
+    <string name="profile">Profil</string>
+    <string name="editButton">Modifier</string>
+    <string name="change_password">\t\tModifier le \nmot de passe</string>
+    <string name="edit_profile">Modifier le profil</string>
+    <string name="nom_prenom">Prénom</string>
+    <string name="email">Nom</string>
+    <string name="telephone">Téléphone</string>
+    <string name="numeropraticien">Numéro de praticien</string>
+    <string name="address">Adresse</string>
+    <string name="add_patient">Ajouter un patient</string>
+    <string name="woman">Femme</string>
+    <string name="man">Homme</string>
+    <string name="lastName">Nom</string>
+    <string name="firstName">Prénom</string>
+    <string name="birthday">Date de naissance</string>
+    <string name="numero_ramq">Numero RAMQ</string>
+    <string name="city">Ville</string>
+    <string name="postcode">Code Postal</string>
+    <string name="addNote">Notes supplementaires</string>
+    <string name="last_password">Entrez votre ancien mot de passe</string>
+    <string name="new_password">Entrez votre nouveau mot de passe</string>
+    <string name="comfirm_password">Confirmez le</string>
+    <string name="listePatients">Liste des patients</string>
+</resources>

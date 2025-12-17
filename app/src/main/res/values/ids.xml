@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <item name="patientAutoComplete" type="id">@id/rvPatients</item>
+    <item name="dateTimeField" type="id">@id/text_date_heure</item>
+    <item name="addressField" type="id">@id/addressField</item>
+    <item name="vitalSignsSection" type="id">@id/vitalSignsSection</item>
+    <item name="pressionArterielle" type="id">@id/pressionArterielle</item>
+    <item name="remarksSection" type="id">@id/text_notes_infirmier</item>
+    <item name="etatGeneral" type="id">@id/etatGeneral</item>
+    <item name="notesSupplementaires" type="id">@id/notesSupplementaires</item>
+    <item name="photoButton" type="id">@id/photoButton</item>
+    <item name="geolocButton" type="id">@id/geolocButton</item>
+    <item name="saveButton" type="id">@id/saveButton</item>
+    <item name="submitButton" type="id">@id/submitButton</item>
+</resources>

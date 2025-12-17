@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <data>
+
+        <variable
+            name="infirmier"
+            type="com.example.proxymed.data.model.Utilisateur" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="24dp"
+        tools:context=".ui.nurse.ProfileFragment"
+        android:background="@drawable/background_fond">
+
+        <TextView
+            android:id="@+id/profile_title"
+            android:textColor="#673AB7"
+            style="@style/TextAppearance.Title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <ImageView
+            android:id="@+id/profil_image"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/image_profile_circle_shape"
+            android:layout_marginTop="30dp"
+            android:contentDescription="@string/profile_photo"
+            android:elevation="10dp"
+            tools:layout_editor_absoluteX="48dp"
+            tools:layout_editor_absoluteY="73dp"
+            app:layout_constraintTop_toBottomOf="@id/profile_title"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"/>
+
+        <!-- Nom de l'infirmier -->
+        <TextView
+            android:id="@+id/profil_nom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            style="@style/TextAppearance.Subtitle"
+            android:text="@{infirmier.nom}"
+            app:layout_constraintBottom_toTopOf="@id/profil_prenom"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/profil_image"
+            app:layout_constraintTop_toTopOf="@id/profil_image" />
+
+        <!-- Prénom de l'infirmier -->
+        <TextView
+            android:id="@+id/profil_prenom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="5dp"
+            android:text="@{infirmier.prenom}"
+            style="@style/TextAppearance.Subtitle"
+            app:layout_constraintBottom_toTopOf="@id/profil_num_practicien"
+            app:layout_constraintEnd_toEndOf="@id/profil_nom"
+            app:layout_constraintStart_toStartOf="@id/profil_nom"
+            app:layout_constraintTop_toBottomOf="@id/profil_nom" />
+
+        <TextView
+            android:id="@+id/profil_num_practicien"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/lexend_deca"
+            android:text="@{infirmier.numeroPraticien}"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@id/profil_image"
+            app:layout_constraintEnd_toEndOf="@id/profil_nom"
+            app:layout_constraintStart_toStartOf="@id/profil_nom"
+            app:layout_constraintTop_toBottomOf="@+id/profil_prenom" />
+
+        <View
+            android:id="@+id/profil_break"
+            android:layout_width="290dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="100dp"
+            android:layout_marginBottom="25dp"
+            android:background="@drawable/break_shape"
+            android:backgroundTint="#2A2A2E"
+            app:layout_constraintBottom_toTopOf="@id/profil_edit_button_tv"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profil_image"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <TextView
+            android:id="@+id/profil_edit_button_tv"
+            android:layout_width="250dp"
+            android:layout_height="48dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginTop="30dp"
+            android:textStyle="bold"
+            android:background="@drawable/button_shape_top"
+            android:drawableStart="@drawable/baseline_edit_purple"
+            android:drawableEnd="@drawable/baseline_keyboard_arrow_right_purple"
+            android:gravity="center"
+            android:text="@string/edit_profile"
+            android:textColor="#673AB7"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toTopOf="@id/profil_change_password_button"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profil_break" />
+
+        <TextView
+            android:id="@+id/profil_change_password_button"
+            android:layout_marginTop="@dimen/activity_horizontal_margin"
+            android:textStyle="bold"
+            android:layout_width="250dp"
+            android:layout_height="48dp"
+            android:background="@drawable/button_shape_top"
+            android:drawableStart="@drawable/baseline_password_purple"
+            android:drawableEnd="@drawable/baseline_keyboard_arrow_right_purple"
+            android:gravity="center"
+            android:text="@string/change_password"
+            android:textColor="#673AB7"
+            android:textSize="18sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/profil_edit_button_tv" />
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

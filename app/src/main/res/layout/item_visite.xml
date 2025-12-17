@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- Déclaration de la variable 'visite' -->
+    <data>
+        <variable
+            name="visite"
+            type="com.example.proxymed.data.model.VisiteEntity" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:paddingHorizontal="10dp"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:background="@drawable/rounded_background"
+        tools:context=".ui.nurse.dashboard.listevisite.ListeVisiteFragment">
+
+
+        <!-- Titre : Nom et Prénom du patient -->
+        <TextView
+            android:id="@+id/tvPatientName"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{visite.patientPrenom + ' ' + visite.patientNom}"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:layout_marginBottom="4dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Date du rendez-vous -->
+        <TextView
+            android:id="@+id/tvVisitDate"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{visite.dateRendezVous}"
+        android:textSize="16sp"
+        android:textColor="@android:color/darker_gray"
+        android:layout_marginBottom="8dp"
+        app:layout_constraintTop_toBottomOf="@id/tvPatientName"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+        <!-- Adresse du patient -->
+        <TextView
+            android:id="@+id/tvPatientAddress"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@{visite.adresseRdv}"
+        android:textSize="15sp"
+        android:textColor="@android:color/black"
+        android:textStyle="italic"
+        app:layout_constraintTop_toBottomOf="@id/tvVisitDate"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

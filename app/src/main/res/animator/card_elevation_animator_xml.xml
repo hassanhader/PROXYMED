@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <!-- État normal (lorsque le CardView n'est pas touché) -->
+    <item android:state_enabled="true" android:state_pressed="false" android:elevation="4dp"/>
+
+    <!-- État pressé ou touché -->
+    <item android:state_pressed="true" android:elevation="8dp"/>
+
+    <!-- État de survol (si applicable pour les appareils avec interface tactile) -->
+    <item android:state_hovered="true" android:elevation="8dp"/>
+</selector>

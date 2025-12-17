@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="patient"
+            type="com.example.proxymed.data.model.PatientEntity" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:elevation="10dp"
+        android:backgroundTint="@android:color/white">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp"
+            android:background="@drawable/rounded_background">
+
+            <!-- Nom -->
+            <TextView
+                android:id="@+id/patient_nom_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{patient.nom}"
+                android:textStyle="bold"
+                android:textAlignment="center"
+                android:textColor="#4A148C"
+                android:textSize="22sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Nom" />
+
+            <!-- Prénom -->
+            <TextView
+                android:id="@+id/patient_prenom_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{patient.prenom}"
+                android:textColor="#673AB7"
+                android:textStyle="bold"
+                android:textSize="20sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/patient_nom_tv"
+                tools:text="Prenom" />
+
+            <!-- Téléphone -->
+            <ImageView
+                android:id="@+id/patient_tel_image"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="Téléphone"
+                android:elevation="5dp"
+                android:src="@drawable/baseline_phone_24"
+                app:layout_constraintBottom_toBottomOf="@id/patient_nom_tv"
+                app:layout_constraintEnd_toStartOf="@id/patient_tel_tv"
+                app:layout_constraintStart_toEndOf="@id/patient_prenom_tv"
+                app:layout_constraintTop_toTopOf="@id/patient_nom_tv" />
+
+            <!-- Téléphone texte -->
+            <TextView
+                android:id="@+id/patient_tel_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{String.valueOf(patient.telephone)}"
+                android:textColor="#757575"
+                app:layout_constraintBottom_toBottomOf="@id/patient_nom_tv"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toEndOf="@id/patient_tel_image"
+                app:layout_constraintTop_toTopOf="@id/patient_nom_tv" />
+
+            <!-- Adresse -->
+            <ImageView
+                android:id="@+id/patient_adresse_image"
+                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:contentDescription="Adresse"
+                android:elevation="5dp"
+                android:src="@drawable/baseline_location_on_24"
+                app:layout_constraintEnd_toStartOf="@id/patient_adresse_tv"
+                app:layout_constraintStart_toStartOf="@id/patient_tel_image"
+                app:layout_constraintTop_toBottomOf="@id/patient_tel_tv" />
+
+            <TextView
+                android:id="@+id/patient_adresse_tv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{patient.adresse}"
+                android:textColor="#616161"
+                app:layout_constraintBottom_toBottomOf="@id/patient_adresse_image"
+                app:layout_constraintStart_toEndOf="@id/patient_adresse_image"
+                app:layout_constraintTop_toTopOf="@id/patient_adresse_image" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+    </androidx.cardview.widget.CardView>
+</layout>
+
