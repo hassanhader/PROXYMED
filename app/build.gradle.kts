@@ -55,6 +55,27 @@ dependencies {
     testImplementation(libs.junit)
     androidTestImplementation(libs.ext.junit)
     androidTestImplementation(libs.espresso.core)
+    
+    // Mockito pour les tests unitaires
+    testImplementation("org.mockito:mockito-core:5.1.1")
+    testImplementation("org.mockito:mockito-inline:5.1.1")
+    
+    // Robolectric pour tester les composants Android sans émulateur
+    testImplementation("org.robolectric:robolectric:4.11.1")
+    
+    // Room testing
+    testImplementation("androidx.room:room-testing:2.6.1")
+    androidTestImplementation("androidx.room:room-testing:2.6.1")
+    
+    // Architecture Components testing
+    testImplementation("androidx.arch.core:core-testing:2.2.0")
+    androidTestImplementation("androidx.arch.core:core-testing:2.2.0")
+    
+    // Espresso contrib pour RecyclerView et autres composants
+    androidTestImplementation("androidx.test.espresso:espresso-contrib:3.5.1")
+    
+    // Fragment testing
+    debugImplementation("androidx.fragment:fragment-testing:1.6.2")
 
     // Navigation Component
     implementation("androidx.navigation:navigation-fragment-ktx:2.8.8")
@@ -62,8 +83,8 @@ dependencies {
 
     // Dépendances ROOM pour la base de données locale
     implementation("androidx.room:room-runtime:2.6.1")
-    annotationProcessor("androidx.room:room-compiler:2.6.1")  // Si tu n'utilises pas Kotlin
-    implementation("androidx.room:room-ktx:2.6.1")  // Pour la version Kotlin
+    annotationProcessor("androidx.room:room-compiler:2.6.1")
+
 
     // Google Play Services pour la localisation
     implementation("com.google.android.gms:play-services-location:21.0.1")
