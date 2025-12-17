@@ -301,7 +301,7 @@ public class VisiteEntity {
 
 
     public void setPhoto(byte[] photos) {
-        this.photo = photo;
+        this.photo = photos;
     }
 
     public double getLatitude() {
