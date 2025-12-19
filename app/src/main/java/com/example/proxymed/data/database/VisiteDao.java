@@ -23,6 +23,10 @@ public interface VisiteDao {
     @Delete
     void delete(VisiteEntity visite);
 
+    // Supprimer toutes les visites (utile pour les tests)
+    @Query("DELETE FROM visite")
+    void deleteAll();
+
     // Récupérer toutes les visites
     @Query("SELECT * FROM visite")
     LiveData<List<VisiteEntity>> getAllVisites();

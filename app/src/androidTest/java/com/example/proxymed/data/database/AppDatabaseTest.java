@@ -145,14 +145,33 @@ public class AppDatabaseTest {
 
     @Test
     public void testInsertAndGetPatient() {
-        // Arrange
+        // Arrange - Créer d'abord un médecin pour la clé étrangère
+        Utilisateur medecin = new Utilisateur(
+                "Martin",
+                "Sophie",
+                "sophie.martin@example.com",
+                "medecin",
+                "password123",
+                "514-987-6543",
+                "Cardiologie",
+                "12345",
+                null,
+                null
+        );
+        utilisateurDao.insert(medecin);
+        
+        // Récupérer l'ID du médecin inséré
+        Utilisateur insertedMedecin = utilisateurDao.getUtilisateurByEmail("sophie.martin@example.com");
+        assertNotNull("Le médecin doit être inséré", insertedMedecin);
+        long medecinId = insertedMedecin.getId();
+        
         PatientEntity patient = new PatientEntity(
                 "Lavoie",
                 "Pierre",
                 "1990-05-15",
                 "789 Rue Patient, Montréal",
                 "514-111-2222",
-                1L
+                medecinId
         );
         
         // Act
@@ -167,10 +186,27 @@ public class AppDatabaseTest {
 
     @Test
     public void testUpdatePatient() {
-        // Arrange
+        // Arrange - Créer d'abord un médecin
+        Utilisateur medecin = new Utilisateur(
+                "Dupont",
+                "Jean",
+                "jean.dupont@example.com",
+                "medecin",
+                "password123",
+                "514-123-4567",
+                "Généraliste",
+                "54321",
+                null,
+                null
+        );
+        utilisateurDao.insert(medecin);
+        Utilisateur insertedMedecin = utilisateurDao.getUtilisateurByEmail("jean.dupont@example.com");
+        assertNotNull("Le médecin doit être inséré", insertedMedecin);
+        long medecinId = insertedMedecin.getId();
+        
         PatientEntity patient = new PatientEntity(
                 "Gagnon", "Julie", "1985-03-20",
-                "321 Rue", "418-333-4444", 1L
+                "321 Rue", "418-333-4444", medecinId
         );
         long id = patientDao.insert(patient);
         patient.setId(id);
@@ -188,11 +224,61 @@ public class AppDatabaseTest {
 
     @Test
     public void testInsertAndGetVisite() {
-        // Arrange
+        // Arrange - Créer d'abord les entités nécessaires pour les clés étrangères
+        
+        // 1. Créer un médecin
+        Utilisateur medecin = new Utilisateur(
+                "Martin",
+                "Sophie",
+                "sophie.martin@example.com",
+                "medecin",
+                "password123",
+                "514-987-6543",
+                "Cardiologie",
+                "12345",
+                null,
+                null
+        );
+        utilisateurDao.insert(medecin);
+        Utilisateur insertedMedecin = utilisateurDao.getUtilisateurByEmail("sophie.martin@example.com");
+        assertNotNull("Le médecin doit être inséré", insertedMedecin);
+        long medecinId = insertedMedecin.getId();
+        
+        // 2. Créer un infirmier
+        Utilisateur infirmier = new Utilisateur(
+                "Dupont",
+                "Jean",
+                "jean.dupont@example.com",
+                "infirmier",
+                "password456",
+                "514-123-4567",
+                null,
+                null,
+                "123 Rue Test",
+                null
+        );
+        utilisateurDao.insert(infirmier);
+        Utilisateur insertedInfirmier = utilisateurDao.getUtilisateurByEmail("jean.dupont@example.com");
+        assertNotNull("L'infirmier doit être inséré", insertedInfirmier);
+        long infirmierId = insertedInfirmier.getId();
+        
+        // 3. Créer un patient
+        PatientEntity patient = new PatientEntity(
+                "Lavoie",
+                "Pierre",
+                "1990-05-15",
+                "789 Rue Patient, Montréal",
+                "514-111-2222",
+                medecinId
+        );
+        long patientId = patientDao.insert(patient);
+        patient.setId(patientId);
+        
+        // 4. Maintenant créer la visite avec les IDs valides
         VisiteEntity visite = new VisiteEntity(
-                1L, "Lavoie", "Pierre",
-                2L, "Dupont", "Jean",
-                "Martin", "Sophie", 3L,
+                patientId, "Lavoie", "Pierre",
+                infirmierId, "Dupont", "Jean",
+                "Martin", "Sophie", medecinId,
                 "2025-03-20", "789 Rue Patient",
                 "120/80", 5.5f, 75.5f,
                 18, 72, 98,

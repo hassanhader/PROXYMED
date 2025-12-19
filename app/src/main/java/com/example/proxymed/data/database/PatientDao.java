@@ -41,5 +41,9 @@ public interface PatientDao {
     @Query("SELECT COUNT(*) FROM patients WHERE medecinId = :medecinId")
     int countPatientsByMedecin(long medecinId);
 
+    // Supprimer tous les patients (utile pour les tests)
+    @Query("DELETE FROM patients")
+    void deleteAll();
+
 }
 

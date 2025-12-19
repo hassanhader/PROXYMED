@@ -34,6 +34,8 @@ public interface UtilisateurDao {
     @Delete
     void delete(Utilisateur utilisateur);
 
+
+
     @Query("DELETE FROM utilisateurs")
     void deleteAll();  // Supprimer tous les utilisateurs
 

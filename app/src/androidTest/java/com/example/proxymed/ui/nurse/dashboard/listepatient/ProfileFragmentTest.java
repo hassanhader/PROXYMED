@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.SharedPreferences;
 
 import androidx.fragment.app.testing.FragmentScenario;
+import androidx.fragment.app.FragmentFactory;
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
 
@@ -43,8 +44,8 @@ public class ProfileFragmentTest {
         FragmentScenario<ProfileFragment> scenario = FragmentScenario.launchInContainer(
                 ProfileFragment.class,
                 null,
-                R.style.Theme_AppCompat,
-                null
+                R.style.Theme_PROXYMED,
+                (FragmentFactory) null
         );
         
         // Assert
@@ -60,15 +61,14 @@ public class ProfileFragmentTest {
         FragmentScenario<ProfileFragment> scenario = FragmentScenario.launchInContainer(
                 ProfileFragment.class,
                 null,
-                R.style.Theme_AppCompat,
-                null
+                R.style.Theme_PROXYMED,
+                (FragmentFactory) null
         );
         
         // Assert
         scenario.onFragment(fragment -> {
             assertNotNull(fragment.getView());
             // Vérifier que les informations utilisateur sont affichées
-            // Note: Les IDs peuvent varier selon votre layout
         });
     }
 }
