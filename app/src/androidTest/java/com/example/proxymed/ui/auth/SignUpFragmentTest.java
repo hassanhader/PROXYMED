@@ -1,12 +1,16 @@
 package com.example.proxymed.ui.auth;
 
-import android.app.Application;
 import android.content.Context;
 
 import androidx.fragment.app.testing.FragmentScenario;
-import androidx.fragment.app.FragmentFactory;
+import androidx.navigation.Navigation;
+import androidx.navigation.testing.TestNavHostController;
 import androidx.test.core.app.ApplicationProvider;
 import androidx.test.ext.junit.runners.AndroidJUnit4;
+import androidx.test.espresso.Espresso;
+import androidx.test.espresso.action.ViewActions;
+import androidx.test.espresso.assertion.ViewAssertions;
+import androidx.test.espresso.matcher.ViewMatchers;
 
 import com.example.proxymed.R;
 import com.example.proxymed.data.database.AppDatabase;
@@ -33,15 +37,13 @@ public class SignUpFragmentTest {
 
     private AppDatabase database;
     private UtilisateurRepository repository;
-    private Application application;
     private Context context;
 
     @Before
     public void setUp() {
         context = ApplicationProvider.getApplicationContext();
-        application = (Application) context;
         database = AppDatabase.getInstance(context);
-        repository = new UtilisateurRepository(application);
+        repository = new UtilisateurRepository(context);
         
         // Nettoyer la base de données avant chaque test
         database.utilisateurDao().deleteAll();
@@ -61,8 +63,8 @@ public class SignUpFragmentTest {
         FragmentScenario<SignUpFragment> scenario = FragmentScenario.launchInContainer(
                 SignUpFragment.class,
                 null,
-                R.style.Theme_PROXYMED,
-                (FragmentFactory) null
+                R.style.Theme_AppCompat,
+                null
         );
         
         // Assert
@@ -86,15 +88,15 @@ public class SignUpFragmentTest {
         FragmentScenario<SignUpFragment> scenario = FragmentScenario.launchInContainer(
                 SignUpFragment.class,
                 null,
-                R.style.Theme_PROXYMED,
-                (FragmentFactory) null
+                R.style.Theme_AppCompat,
+                null
         );
         
         // Act - Cliquer sur le bouton sans remplir les champs
         onView(withId(R.id.btnSubmit)).perform(click());
         
-        // Assert - Un toast d'erreur devrait apparaître
-        // On vérifie que la navigation n'a pas eu lieu (le fragment est toujours visible)
+        // Assert - Un toast d'erreur devrait apparaître (testé via l'absence de navigation)
+        // Note: Les toasts sont difficiles à tester directement, on vérifie que la navigation n'a pas eu lieu
         onView(withId(R.id.etFullName)).check(matches(isDisplayed()));
     }
 
@@ -104,8 +106,8 @@ public class SignUpFragmentTest {
         FragmentScenario<SignUpFragment> scenario = FragmentScenario.launchInContainer(
                 SignUpFragment.class,
                 null,
-                R.style.Theme_PROXYMED,
-                (FragmentFactory) null
+                R.style.Theme_AppCompat,
+                null
         );
         
         // Act
@@ -126,8 +128,8 @@ public class SignUpFragmentTest {
         FragmentScenario<SignUpFragment> scenario = FragmentScenario.launchInContainer(
                 SignUpFragment.class,
                 null,
-                R.style.Theme_PROXYMED,
-                (FragmentFactory) null
+                R.style.Theme_AppCompat,
+                null
         );
         
         // Act
@@ -148,8 +150,8 @@ public class SignUpFragmentTest {
         FragmentScenario<SignUpFragment> scenario = FragmentScenario.launchInContainer(
                 SignUpFragment.class,
                 null,
-                R.style.Theme_PROXYMED,
-                (FragmentFactory) null
+                R.style.Theme_AppCompat,
+                null
         );
         
         // Act
@@ -170,15 +172,15 @@ public class SignUpFragmentTest {
         FragmentScenario<SignUpFragment> scenario = FragmentScenario.launchInContainer(
                 SignUpFragment.class,
                 null,
-                R.style.Theme_PROXYMED,
-                (FragmentFactory) null
+                R.style.Theme_AppCompat,
+                null
         );
         
         // Act - Cliquer sur l'image de profil
         onView(withId(R.id.ivProfilePicture)).perform(click());
         
-        // Assert - Un dialogue devrait apparaître
-        // On vérifie que le fragment est toujours actif après le clic
+        // Assert - Un dialogue devrait apparaître (difficile à tester directement)
+        // On vérifie que le fragment est toujours actif
         onView(withId(R.id.etFullName)).check(matches(isDisplayed()));
     }
 }

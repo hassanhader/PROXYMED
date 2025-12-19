@@ -7,7 +7,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.robolectric.RobolectricTestRunner;
 import org.robolectric.RuntimeEnvironment;
-import org.robolectric.annotation.Config;
 
 import static org.junit.Assert.*;
 
@@ -15,7 +14,6 @@ import static org.junit.Assert.*;
  * Tests unitaires pour PatientViewModel
  */
 @RunWith(RobolectricTestRunner.class)
-@Config(manifest = Config.NONE)
 public class PatientViewModelTest {
 
     private Application application;
